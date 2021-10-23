@@ -66,7 +66,7 @@ router.put('/:id', async (req, res) => {
         id: req.params.id
       }
     });
-    res.status(200).json({category});
+    res.status(200).json(category);
   } catch (err) {
     res.status(400).json(err);
   }
