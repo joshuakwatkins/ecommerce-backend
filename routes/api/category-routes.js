@@ -8,11 +8,9 @@ router.get('/', async (req, res) => {
   // be sure to include its associated Products
   try {
     const categories = await Category.findAll({
-      include: [
-        { 
-          model: Product, as: 'Products'
-         }
-      ]
+      include: [{ 
+          model: Product
+         }]
     });
     if (!categories) {
       res.status(404).json({ message: 'No categories found!' });
@@ -75,7 +73,7 @@ router.put('/:id', async (req, res) => {
 router.delete('/:id', async (req, res) => {
   // delete a category by its `id` value
   try {
-    const Category = await Category.destroy({
+    const category = await Category.destroy({
       where: {
         id: req.params.id
       }
