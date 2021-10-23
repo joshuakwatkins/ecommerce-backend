@@ -19,7 +19,7 @@ Product.belongsTo(Category, {
   foreignKey: 'category.id' 
 });
 
-Product.belongsToMany(Tags, {
+Product.belongsToMany(Tag, {
   through: {
     model: ProductTag,
     unique: false,
